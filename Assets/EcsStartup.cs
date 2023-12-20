@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace Client {
     sealed class EcsStartup : MonoBehaviour {
+        [SerializeField] ButtonsFolder buttons;
+
         EcsWorld _world;        
         IEcsSystems _systems;
 
@@ -42,8 +44,6 @@ namespace Client {
                 _systems.Destroy ();
                 _systems = null;
             }
-
-            
 
             // cleanup custom worlds here.
             

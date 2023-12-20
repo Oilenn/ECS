@@ -1,5 +1,7 @@
+using UnityEngine.UI;
+
 namespace Client {
     struct EcsComponent {
-        public int x;
+        public Button Button;
     }
 }

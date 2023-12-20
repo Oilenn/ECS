@@ -9,7 +9,7 @@ namespace Client {
         public void Run (IEcsSystems systems) {
             foreach(var entity in ecsFilterInject.Value)
             {
-                ecsFilterInject.Pools.Inc1.Del(entity);
+                Debug.Log("Running");
             }
         }
     }
