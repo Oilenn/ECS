@@ -1,7 +1,7 @@
 using UnityEngine.UI;
 
 namespace Client {
-    struct EcsComponent {
+    struct ButtonComponent {
         public Button Button;
     }
 }

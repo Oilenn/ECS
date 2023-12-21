@@ -14,7 +14,7 @@ namespace Client {
             _systems = new EcsSystems (_world);
 
             _systems
-                .Add(new EcsInitSystem())
+                .Add(new EcsInitSystem().SetButtons(buttons))
                 .Add(new EcsRunSystem())
                 // register your systems here, for example:
                 // .Add (new TestSystem1 ())
