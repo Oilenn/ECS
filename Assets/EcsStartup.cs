@@ -12,24 +12,13 @@ namespace Client {
         IEcsSystems _systems;
         
         void Start () {
-            GameObject _btnGo;
-            Transform _btnTransform;
-            Button _btn;
-
-
-            // Получение ссылки на виджет-действие с именем "MyButton". 
-            //_btnGo = _emmiter.GetNamedObject("Start");
-            // Чтение Transform-компонента с него.
-            //_btnTransform = _emmiter.GetNamedObject("Start").GetComponent<Transform>();
-            // Чтение Button-компонента с него.
-            //_btn = _emmiter.GetNamedObject("Start").GetComponent<Button>();
 
             _world = new EcsWorld ();
             _systems = new EcsSystems (_world);
             
 
             _systems
-                .Add(new EcsRunSystem())
+                .Add(new SoldierChasing())
                 // register your systems here, for example:
                 // .Add (new TestSystem1 ())
                 // .Add (new TestSystem2 ())
