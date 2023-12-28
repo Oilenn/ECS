@@ -5,26 +5,18 @@ using Leopotam.EcsLite.Di;
 namespace Client {
     sealed class EcsInitSystem : IEcsInitSystem {
         private readonly EcsWorldInject _world = default;
-        private readonly EcsPoolInject<SoldierStats> _poolButtons = default;
+        private readonly EcsPoolInject<SoldierStats> _poolSoldiers = default;
 
-        public ButtonsFolder buttons;
+        public SceneData _sceneData;
 
         public void Init (IEcsSystems systems) {
-            ref var soldier1 = ref _poolButtons.Value.Add(_world.Value.NewEntity());
-            ref var soldier2 = ref _poolButtons.Value.Add(_world.Value.NewEntity());
+            ref var soldier1 = ref _poolSoldiers.Value.Add(_world.Value.NewEntity());
+            ref var soldier2 = ref _poolSoldiers.Value.Add(_world.Value.NewEntity());
 
-        }
+            Debug.Log(_sceneData.SoldiersList[0].gameObject);
 
-        public EcsInitSystem SetButtons(ButtonsFolder buttons)
-        {
-            this.buttons = buttons;
-            return this;
-        }
-
-
-        public void OnClickButton()
-        {
-            Debug.Log("Button clicked");
+            soldier1.GameObject = _sceneData.SoldiersList[0].gameObject;
+            soldier2.GameObject = _sceneData.SoldiersList[1].gameObject;
         }
     }
 }

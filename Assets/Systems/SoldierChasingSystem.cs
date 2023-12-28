@@ -5,7 +5,7 @@ using UnityEngine.Scripting;
 
 namespace Client
 {
-    sealed class SoldierChasing : IEcsRunSystem
+    sealed class SoldierChasingSystem : IEcsRunSystem
     {
         [Preserve] // Этот атрибут необходим для сохранения этого метода для il2cpp.
         private readonly EcsPoolInject<SoldierStats> _poolSoldiers = default;
@@ -23,7 +23,10 @@ namespace Client
         public void Move(GameObject gameObject)
         {
             gameObject.transform.position += Vector3.Lerp(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.2f);
+            
         }
+
+        
 
         //void OnAnyClick(in EcsUguiClickEvent evt)
         //{

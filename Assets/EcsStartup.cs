@@ -6,19 +6,19 @@ using UnityEngine.UI;
 
 namespace Client {
     sealed class EcsStartup : MonoBehaviour {
-        [SerializeField] EcsUguiEmitter _emmiter;
-
-        EcsWorld _world;        
-        IEcsSystems _systems;
+        [SerializeField] private EcsUguiEmitter _emmiter;
+        public SceneData _sceneData;
+        private EcsWorld _world;
+        private IEcsSystems _systems;
         
         void Start () {
-
+            Debug.Log(_sceneData.name);
             _world = new EcsWorld ();
             _systems = new EcsSystems (_world);
-            
 
             _systems
-                .Add(new SoldierChasing())
+                .Add(new EcsInitSystem())
+                .Add(new SoldierChasingSystem())
                 // register your systems here, for example:
                 // .Add (new TestSystem1 ())
                 // .Add (new TestSystem2 ())
@@ -30,8 +30,7 @@ namespace Client {
                 // .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem ("events"))
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
-                .InjectUgui(_emmiter)
-                .Inject()
+                .Inject(_sceneData)
                 .Init ();
         }
 
