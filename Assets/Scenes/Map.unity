@@ -3050,7 +3050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _emmiter: {fileID: 321476314}
-  _sceneData: {fileID: 876091393}
+  SceneData: {fileID: 876091393}
 --- !u!4 &1973129437
 Transform:
   m_ObjectHideFlags: 0

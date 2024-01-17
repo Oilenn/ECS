@@ -6,10 +6,13 @@ namespace Client {
     sealed class EcsInitSystem : IEcsInitSystem {
         private readonly EcsWorldInject _world = default;
         private readonly EcsPoolInject<SoldierStats> _poolSoldiers = default;
+        private readonly EcsStartup _startup;
 
         public SceneData _sceneData;
 
         public void Init (IEcsSystems systems) {
+            _sceneData = _startup.SceneData;
+
             ref var soldier1 = ref _poolSoldiers.Value.Add(_world.Value.NewEntity());
             ref var soldier2 = ref _poolSoldiers.Value.Add(_world.Value.NewEntity());
 

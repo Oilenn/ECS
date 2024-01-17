@@ -7,12 +7,12 @@ using UnityEngine.UI;
 namespace Client {
     sealed class EcsStartup : MonoBehaviour {
         [SerializeField] private EcsUguiEmitter _emmiter;
-        public SceneData _sceneData;
+        public SceneData SceneData;
         private EcsWorld _world;
         private IEcsSystems _systems;
         
         void Start () {
-            Debug.Log(_sceneData.name);
+            Debug.Log(SceneData.name);
             _world = new EcsWorld ();
             _systems = new EcsSystems (_world);
 
@@ -30,7 +30,7 @@ namespace Client {
                 // .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem ("events"))
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
-                .Inject(_sceneData)
+                .Inject(SceneData)
                 .Init ();
         }
 
