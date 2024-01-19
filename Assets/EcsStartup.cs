@@ -15,11 +15,12 @@ namespace Client {
         void Start () {
             var data = new SceneData();
             data.SoldiersList = SceneData.SoldiersList;
+            Debug.Log(SceneData);
 
             _world = new EcsWorld ();
-            _systems = new EcsSystems (_world, data)
+            _systems = new EcsSystems (_world, SceneData)
                 .Add(new EcsInitSystem())
-
+                .Add(new SoldierChasingSystem())
 
                 // register your systems here, for example:
                 // .Add (new TestSystem1 ())
@@ -34,7 +35,7 @@ namespace Client {
 
 #endif
 
-                .Inject(data);
+                .Inject(SceneData);
                 _systems.Init ();
         }
 

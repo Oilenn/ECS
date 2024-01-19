@@ -23,7 +23,7 @@ namespace Client
         public void Move(GameObject gameObject)
         {
             Debug.Log("Move");
-            gameObject.transform.position += Vector3.Lerp(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.2f);
+            gameObject.transform.position += new Vector3(0,0);
             
         }
 
