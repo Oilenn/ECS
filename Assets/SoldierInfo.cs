@@ -5,5 +5,4 @@ using UnityEngine;
 public class SoldierInfo : MonoBehaviour
 {
     [SerializeField] private Transform _transform;
-    
 }

@@ -1,6 +1,7 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Unity.Ugui;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,15 +11,16 @@ namespace Client {
         public SceneData SceneData;
         private EcsWorld _world;
         private IEcsSystems _systems;
-        
-        void Start () {
-            Debug.Log(SceneData.name);
-            _world = new EcsWorld ();
-            _systems = new EcsSystems (_world);
 
-            _systems
+        void Start () {
+            var data = new SceneData();
+            data.SoldiersList = SceneData.SoldiersList;
+
+            _world = new EcsWorld ();
+            _systems = new EcsSystems (_world, data)
                 .Add(new EcsInitSystem())
-                .Add(new SoldierChasingSystem())
+
+
                 // register your systems here, for example:
                 // .Add (new TestSystem1 ())
                 // .Add (new TestSystem2 ())
@@ -29,9 +31,11 @@ namespace Client {
                 // add debug systems for custom worlds here, for example:
                 // .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem ("events"))
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
+
 #endif
-                .Inject(SceneData)
-                .Init ();
+
+                .Inject(data);
+                _systems.Init ();
         }
 
         void Update () {
