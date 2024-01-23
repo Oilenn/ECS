@@ -16,15 +16,20 @@ namespace Client
             foreach (var entity in _ecsFilterInject.Value)
             {
                 ref var soldier = ref _poolSoldiers.Value.Get(entity);
-                Move(soldier.GameObject);
+
+                if (soldier.NeedToMove)
+                {
+                    Move(soldier.GameObject);
+                }
             }
         }
 
         public void Move(GameObject gameObject)
         {
-            Debug.Log("Move");
-            gameObject.transform.position += new Vector3(0,0);
+            Vector2 mousepos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
             
+
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, mousepos, Time.deltaTime);
         }
 
         

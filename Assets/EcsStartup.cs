@@ -15,11 +15,11 @@ namespace Client {
         void Start () {
             var data = new SceneData();
             data.SoldiersList = SceneData.SoldiersList;
-            Debug.Log(SceneData);
 
             _world = new EcsWorld ();
             _systems = new EcsSystems (_world, SceneData)
                 .Add(new EcsInitSystem())
+                .Add(new SoldierStopChasingSystem())
                 .Add(new SoldierChasingSystem())
 
                 // register your systems here, for example:
