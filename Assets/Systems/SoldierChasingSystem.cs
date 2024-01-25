@@ -7,7 +7,7 @@ namespace Client
 {
     sealed class SoldierChasingSystem : IEcsRunSystem
     {
-        [Preserve] // Этот атрибут необходим для сохранения этого метода для il2cpp.
+        [Preserve] // Р­С‚РѕС‚ Р°С‚СЂРёР±СѓС‚ РЅРµРѕР±С…РѕРґРёРј РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ СЌС‚РѕРіРѕ РјРµС‚РѕРґР° РґР»СЏ il2cpp.
         private readonly EcsPoolInject<SoldierStats> _poolSoldiers = default;
         private readonly EcsFilterInject<Inc<SoldierStats>> _ecsFilterInject = default;
 
@@ -27,7 +27,6 @@ namespace Client
         public void Move(GameObject gameObject)
         {
             Vector2 mousepos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
-            
 
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, mousepos, Time.deltaTime);
         }
