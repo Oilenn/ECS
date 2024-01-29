@@ -5,5 +5,6 @@ namespace Client {
         public float Speed;
         public GameObject GameObject;
         public bool NeedToMove;
+        public TileType StandedTile;
     }
 }
