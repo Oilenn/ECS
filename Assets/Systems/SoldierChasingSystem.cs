@@ -17,8 +17,6 @@ namespace Client
             {
                 ref var soldier = ref _poolSoldiers.Value.Get(entity);
 
-                
-
                 if (soldier.NeedToMove)
                 {
                     Move(soldier.GameObject);

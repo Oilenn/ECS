@@ -3,6 +3,6 @@ using UnityEngine;
 
 namespace Client {
     struct MapComponent {
-        public List<TileInfo> Tiles;
+        public List<List<TileComponent>> TileRows;//Колонки тайлов
     }
 }

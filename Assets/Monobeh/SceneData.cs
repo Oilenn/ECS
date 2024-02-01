@@ -7,4 +7,7 @@ public class SceneData : MonoBehaviour
 {
     public List<SoldierInfo> SoldiersList;
     public List<TileInfo> Tiles;
+
+    public GameObject TilePrefab;
+    public GameObject SoldierPrefab;
 }

@@ -9,9 +9,6 @@ namespace Client {
         readonly EcsCustomInject<SceneData> _sceneData = default;
 
         public void Init (IEcsSystems systems) {
-            var ecsWorld = systems.GetWorld();
-
-
             ref var soldier1 = ref _poolSoldiers.Value.Add(_world.Value.NewEntity());
             ref var soldier2 = ref _poolSoldiers.Value.Add(_world.Value.NewEntity());
             

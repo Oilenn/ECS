@@ -14,7 +14,7 @@ namespace Client {
             {
                 ref var tile = ref _poolTiles.Value.Get(entity);
 
-                if (tile.type == TileType.Water)
+                if (tile.Type == TileType.Water)
                 {
                     
                 }

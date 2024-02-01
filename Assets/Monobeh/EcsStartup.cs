@@ -13,14 +13,13 @@ namespace Client {
         private IEcsSystems _systems;
 
         void Start () {
-            var data = new SceneData();
-            data.SoldiersList = SceneData.SoldiersList;
-
             _world = new EcsWorld ();
             _systems = new EcsSystems (_world, SceneData)
                 .Add(new EcsInitSystem())
+                .Add(new MapCreatorSystem())
                 .Add(new SoldierStopChasingSystem())
                 .Add(new SoldierChasingSystem())
+                .Add(new SoldiersCreateSystem())
 
                 // register your systems here, for example:
                 // .Add (new TestSystem1 ())

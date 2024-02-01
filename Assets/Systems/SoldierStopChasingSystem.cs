@@ -19,7 +19,7 @@ namespace Client
 
                 ref var soldier = ref _poolSoldiers.Value.Get(entity);
                     
-                Debug.Log((Vector3.Distance(mousepos, soldier.GameObject.transform.position)) + " " + soldier.GameObject.name);
+                //Debug.Log((Vector3.Distance(mousepos, soldier.GameObject.transform.position)) + " " + soldier.GameObject.name);
 
                 if (Vector3.Distance(mousepos, soldier.GameObject.transform.position) < 0.15f)
                 {
